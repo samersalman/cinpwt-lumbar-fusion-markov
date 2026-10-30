@@ -1,0 +1,8 @@
+# VERIFIED RESULTS -- Phase A2 full-text verification completed 2026-08-17: 46 of 48 parameters were closed out against the 14 source full texts and 43 carry a table/page locator; 2 remain unresolvable assumptions (the ciNPWT institutional net acquisition price and the superficial tunnel length). SSI/ciNPWT risk-threshold Markov CUA; US commercial payer; 2025 USD; monthly cycles; 24-cycle base horizon; 3%/yr discounting; WTP $100000/QALY.
+stratum,p_base,horizon_cycles,arm,arm_label,ssi_per_1000,ssi_superficial_per_1000,ssi_deep_per_1000,reoperations_per_1000,persistent_infections_per_1000
+low,0.02,24,A_standard,Contemporary prevention + standard dressing,19.945141645713925,5.086011119657051,14.859130526056873,5.7043105106741825,3.7147826315142183
+low,0.02,24,B_cinpwt,Contemporary prevention + ciNPWT,12.166536403885496,3.1024667829908013,9.064069620894694,3.479629411511252,2.2660174052236735
+intermediate,0.066,24,A_standard,Contemporary prevention + standard dressing,65.81896743085595,16.78383669486827,49.035130735987686,18.824224685224802,12.258782683996921
+intermediate,0.066,24,B_cinpwt,Contemporary prevention + ciNPWT,40.149570132822134,10.238140383869645,29.91142974895249,11.48277705798713,7.477857437238122
+high,0.114,24,A_standard,Contemporary prevention + standard dressing,113.6873073805694,28.990263382045196,84.6970439985242,32.514569910842845,21.17426099963105
+high,0.114,24,B_cinpwt,Contemporary prevention + ciNPWT,69.34925750214732,17.68406066304757,51.66519683909976,19.833887645614134,12.91629920977494

@@ -1,0 +1,88 @@
+# US Life Tables, 2023 -- probability of dying between ages x and x+1 (qx), by single year of age and sex.
+# SOURCE: Arias E, Xu J, Kochanek K. United States Life Tables, 2023. National Vital Statistics Reports;
+#   vol 74 no 6. Hyattsville, MD: National Center for Health Statistics. 2025. DOI: 10.15620/cdc/174591.
+#   Period life table based on 2023 final US mortality + July 1 2023 population + 2023 Medicare (ages 66-99).
+#   qx_male  = Table 2 (males),  column qx.   qx_female = Table 3 (females), column qx.
+# PRIMARY DATA FILE (retrieved 2026-08-09): the official NCHS spreadsheet releases of those two tables,
+#   https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/74-06/Table02.xlsx  (males)
+#   https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/74-06/Table03.xlsx  (females)
+#   Values are the published qx rounded to 6 decimals, matching the printed NVSR 74-6 tables exactly.
+#   (Direct GET of https://www.cdc.gov/nchs/data/nvsr/nvsr74/nvsr74-06.pdf returned HTTP 403 from the CDC
+#   edge cache on 2026-08-09; the ftp.cdc.gov spreadsheet release of the same tables was used instead.)
+# CROSS-CHECKED against two independent reproductions of NVSR 74-6, zero mismatches at 6 decimals on all
+#   101 ages in both sexes: (a) the NCHS report text on NCBI Bookshelf NBK620699, Tables 2 and 3; and
+#   (b) the verbatim reprint of Tables 2 and 3 in the printed report PDF. The 44 rows (ages 57-100) also
+#   reproduce the sibling mirct-markov-cua life table byte-for-byte. Verified, not interpolated.
+# AGE RANGE: 40-100. Extended DOWNWARD from the 57-100 sibling copy using the authoritative NCHS
+#   spreadsheets above -- ages 40-56 are published values, not extrapolations. NCHS publishes 0-100;
+#   this file is truncated at 40 because the model cohort is an adult lumbar-fusion population and no
+#   scenario runs below age 40. The base-case cohort age is Not Reported in the evidence base and is
+#   provisionally set to 60, comfortably inside this range.
+# CONVENTIONS: ages are single-year; `age` is the STARTING integer age of the half-open interval [x, x+1),
+#   so the row age=60 gives the probability of dying between exact age 60 and exact age 61. The final row,
+#   age=100, is the NVSR '100 and older' terminal row and carries qx = 1.0 by construction -- it is a
+#   closing convention, not an observation, and any loader must treat it as the absorbing top age.
+# qx is an ANNUAL probability. inputs.background_mortality(age, sex_mix, t) must convert to the model's
+#   1-month cycle by rate conversion (t = 1/12), not by dividing qx by 12.
+age,qx_male,qx_female
+40,0.003176,0.001660
+41,0.003326,0.001778
+42,0.003464,0.001883
+43,0.003588,0.001973
+44,0.003714,0.002057
+45,0.003862,0.002153
+46,0.004052,0.002277
+47,0.004284,0.002433
+48,0.004557,0.002621
+49,0.004859,0.002832
+50,0.005182,0.003062
+51,0.005535,0.003309
+52,0.005938,0.003572
+53,0.006411,0.003858
+54,0.006960,0.004179
+55,0.007549,0.004519
+56,0.008183,0.004897
+57,0.008909,0.005348
+58,0.009721,0.005873
+59,0.010581,0.006443
+60,0.011457,0.007034
+61,0.012333,0.007625
+62,0.013223,0.008216
+63,0.014147,0.008816
+64,0.015132,0.009448
+65,0.016196,0.010135
+66,0.017494,0.010961
+67,0.018695,0.011782
+68,0.019985,0.012696
+69,0.021360,0.013728
+70,0.022642,0.014755
+71,0.024317,0.016066
+72,0.026170,0.017524
+73,0.028328,0.019299
+74,0.030787,0.021326
+75,0.033522,0.023712
+76,0.036028,0.025914
+77,0.040607,0.029447
+78,0.044020,0.032420
+79,0.049348,0.036450
+80,0.054164,0.040493
+81,0.061040,0.045557
+82,0.068034,0.051025
+83,0.075182,0.056904
+84,0.082862,0.064118
+85,0.092160,0.070931
+86,0.103004,0.080253
+87,0.115464,0.090614
+88,0.129086,0.102080
+89,0.143895,0.114707
+90,0.159898,0.128541
+91,0.177078,0.143609
+92,0.195392,0.159919
+93,0.214769,0.177452
+94,0.235109,0.196164
+95,0.256283,0.215977
+96,0.278136,0.236785
+97,0.300487,0.258448
+98,0.323140,0.280798
+99,0.345888,0.303644
+100,1.000000,1.000000

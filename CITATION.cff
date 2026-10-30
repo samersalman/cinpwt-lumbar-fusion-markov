@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated article and archived software release."
+title: "Analysis code for Cost-Effectiveness of Negative-Pressure Wound Therapy After Posterior Lumbar Fusion"
+type: software
+authors:
+  - family-names: Salman
+    given-names: Samer G.
+  - family-names: Phadke
+    given-names: Rohan A.
+  - family-names: Franco
+    given-names: Adam S.
+  - family-names: Daniels
+    given-names: Alan H.
+version: 1.0.0
+date-released: 2026-10-30
+license: MIT
+keywords:
+  - cost-effectiveness analysis
+  - Markov model
+  - negative-pressure wound therapy
+  - surgical-site infection
+  - lumbar fusion
+  - health economics
+repository-code: "https://github.com/samersalman/cinpwt-lumbar-fusion-markov"
